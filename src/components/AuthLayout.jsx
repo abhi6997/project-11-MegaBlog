@@ -7,9 +7,10 @@ import { useSelector } from 'react-redux';
  const Protected = ({children, authentication=true}) => {
     const navigate = useNavigate();
     const [loader,setLoader] = useState(true)
-    const authStatus = useSelector(state=>state.status)
+    const authStatus = useSelector((state)=>state.status)
 
     useEffect(()=>{
+    
         if(authentication && authStatus!== authentication){
             navigate("/login")
         }else if (!authentication && authStatus !== authentication){

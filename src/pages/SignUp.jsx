@@ -3,7 +3,7 @@ import {SignupComponent} from "../components/index.js"
 
 const SignUp = () => {
   return (
-    <div className='py-8'>
+    <div className=' h-[90vh] flex justify-center items-center py-8'>
         <SignupComponent/>
     </div>
   )

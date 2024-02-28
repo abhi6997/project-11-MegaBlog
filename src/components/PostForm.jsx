@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React,{useEffect ,useCallback} from "react";
 import { useForm } from "react-hook-form";
 import { Button, Input, Select, RTE } from "./index.js";
 import service from "../appwrite/config.js";
@@ -16,7 +16,7 @@ const PostForm = ({ post }) => {
     });
 
   const navigate = useNavigate();
-  const userData = useSelector((state) => state.auth.userData);
+  const userData = useSelector((state) => state.userData);
 
   const submit = async (data) => {
     if (post) {
@@ -40,6 +40,8 @@ const PostForm = ({ post }) => {
       const file = data.image[0]
         ? await service.uploadFile(data.image[0])
         : null;
+
+        console.log("file unloaded succesfully",file.$id)
 
       if (file) {
         const fileId = file.$id;
